@@ -11,6 +11,7 @@
 |
 */
 
+use Chencha\Share\Share;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/home', function () {
@@ -22,7 +23,9 @@ Route::get('/blog',[
     'uses' => 'BlogController@index',
     'as'=> 'blog_pages.main'
 ]);
-Route::get('/blog/news/{id}',[
+
+
+Route::get('/blog/news/{slug}',[
     'uses' => 'BlogController@newsInfo',
     'as'=> 'blog_pages.news'
 ]);

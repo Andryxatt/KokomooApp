@@ -8,7 +8,7 @@ class NewsArtist extends Model
 {
 
     protected $fillable = [
-        'artist_id', 'category_english','category_china','date_news'
+        'artist_id', 'category_english','category_china','date_news', 'slug', 'news_id'
     ];
     public $timestamps = false;
     public function artist()

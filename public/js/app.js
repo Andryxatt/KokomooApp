@@ -3465,6 +3465,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3477,7 +3485,8 @@ __webpack_require__.r(__webpack_exports__);
         category_english: '',
         category_china: '',
         date_news: '',
-        rows: []
+        rows: [],
+        slug: ''
       })
     };
   },
@@ -64786,6 +64795,8 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(news.date_news))]),
                     _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(news.slug))]),
+                    _vm._v(" "),
                     _c("td", [
                       _c(
                         "a",
@@ -65080,6 +65091,46 @@ var render = function() {
                         1
                       ),
                       _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "form-group" },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.form.slug,
+                                expression: "form.slug"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            class: {
+                              "is-invalid": _vm.form.errors.has("slug")
+                            },
+                            attrs: {
+                              type: "text",
+                              name: "slug",
+                              placeholder: "slug"
+                            },
+                            domProps: { value: _vm.form.slug },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(_vm.form, "slug", $event.target.value)
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("has-error", {
+                            attrs: { form: _vm.form, field: "slug" }
+                          })
+                        ],
+                        1
+                      ),
+                      _vm._v(" "),
                       _vm._l(_vm.form.rows, function(row, index) {
                         return _c("div", { staticClass: "form-group" }, [
                           _c("input", {
@@ -65294,6 +65345,8 @@ var staticRenderFns = [
       _c("th", [_vm._v("category china")]),
       _vm._v(" "),
       _c("th", [_vm._v("date news")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("slug url")]),
       _vm._v(" "),
       _c("th", [_vm._v("Modify")])
     ])

@@ -33,12 +33,14 @@ class NewsArtistController extends Controller
         $this->validate($request,[
            'category_english'=> 'required|string',
            'category_china'=> 'required|string',
+            'slug'=>'required|string'
        ]);
        NewsArtist::create([
             'artist_id' =>$request['artist_id'],
             'category_english' =>$request['category_english'],
             'category_china' =>$request['category_china'],
-            'date_news'=>$request['date_news']
+            'date_news'=>$request['date_news'],
+           'slug'=>$request['slug']
         ]);
         $ArtNews = NewsArtist ::orderBy('news_id', 'desc')->first();
 
@@ -78,7 +80,8 @@ class NewsArtistController extends Controller
             'artist_id' => $request['artist_id'],
             'category_china' => $request['category_china'],
             'category_english' => $request['category_english'],
-            'date_news' => $request['date_news']
+            'date_news' => $request['date_news'],
+            'slug'=>$request['slug']
         ];
         NewsArtist::where('news_id', $id)->update($update);
 

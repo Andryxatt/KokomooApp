@@ -22,6 +22,7 @@
                             <th>category english</th>
                             <th>category china</th>
                             <th>date news</th>
+                            <th>slug url</th>
                             <th>Modify</th>
                         </tr>
                         <tr v-for="news in newsArtists" :key="news.news_id">
@@ -30,6 +31,7 @@
                             <td>{{news.category_english}}</td>
                             <td>{{news.category_china}}</td>
                             <td>{{news.date_news}}</td>
+                            <td>{{news.slug}}</td>
                             <td>
                                 <a href="#" @click="editModal(news)">
                                     <i class="fa fa-edit"></i>
@@ -86,6 +88,12 @@
                                        class="form-control" :class="{'is-invalid': form.errors.has('date_news')}">
                                 <has-error :form="form" field="date_news"></has-error>
                             </div>
+                            <div class="form-group">
+                                <input v-model="form.slug" type="text" name="slug"
+                                       placeholder="slug"
+                                       class="form-control" :class="{'is-invalid': form.errors.has('slug')}">
+                                <has-error :form="form" field="slug"></has-error>
+                            </div>
                             <div class="form-group" v-for="(row , index) in form.rows">
                                     <input placeholder="Titel to your photo" class="form-control mb-2" type="text" v-model="row.photo_title">
 
@@ -125,6 +133,7 @@
                     category_china: '',
                     date_news:'',
                     rows: [],
+                    slug: ''
                 })
             }
         },

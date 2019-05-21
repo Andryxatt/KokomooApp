@@ -17,6 +17,7 @@ class CreateNewsArtistsTable extends Migration
             $table->increments('news_id');
             $table->integer('artist_id')->unsigned()->index()->nullable();
             $table->foreign('artist_id')->references('artist_id')->on('artists');
+            $table->string('slug')->unique();
             $table->string('category_english');
             $table->string('category_china');
             $table->date('date_news');

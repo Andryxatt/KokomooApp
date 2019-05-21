@@ -29,10 +29,11 @@ class BlogController extends Controller
         $contents = NewsContent::with('newsArtist')->get();
         return view('blog_pages.news_list', compact('artists','newss','contents' ));
     }
-    public function newsInfo($id)
+    public function newsInfo($slug)
     {
-        $newse = NewsArtist::where('news_id',$id)->get();
-        $content = NewsContent::where("news_id", $id)->get();
+        $newse = NewsArtist::where('slug',$slug)->get();
+
+        $content = NewsContent::where("news_id", $newse[0]->news_id)->get();
 
         return view('blog_pages.news',compact('newse', 'content') );
     }

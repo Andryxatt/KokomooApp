@@ -1,6 +1,6 @@
 @extends('layouts.blog')
 @section('content')
-    <div class="content">
+
         <div class="news-list">
             <div class="container">
                 <div class="row">
@@ -9,16 +9,29 @@
                             <div class="share-box">
                                 <p class="share-box__text">Share</p>
                                 <div class="share-box__list-link">
-                                    <div class="list-link"><a class="list-link__item" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+                                <ul class="social-list">
+                                    <li class="social-list__item">
+                                        <a  href="https://www.facebook.com" target="_blank" class="social-list__link">
                                             <svg class="icon icon-fb ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
-                                            </svg></a><a class="list-link__item" href="https://www.instagram.com/chi_media/" target="_blank">
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social-list__item">
+                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
                                             <svg class="icon icon-instagram ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram"></use>
-                                            </svg></a><a class="list-link__item" href="#" data-izimodal-open="#modal-qr">
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social-list__item">
+                                        <a  href="https://www.wechat.com/" target="_blank" class="social-list__link">
                                             <svg class="icon icon-wechat ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
-                                            </svg></a></div>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul>
                                 </div>
                             </div>
                         </div>
@@ -45,17 +58,57 @@
                                         <div class="top-wrapper__share-box hide-tablet">
                                             <div class="share-box">
                                                 <p class="share-box__text">Share</p>
+
+                                                {{--<div id="share" class="jssocials">--}}
+                                                    {{--<div class="jssocials-shares">--}}
+                                                        {{--<div class="jssocials-share jssocials-share-twitter">--}}
+                                                            {{--<a target="_blank" href="https://twitter.com/share?url=http%3A%2F%2Fjs-socials.com%2Fdemos%2F&amp;text=Simple%20Social%20Network%20Sharing%20Plugin" class="jssocials-share-link">--}}
+                                                                {{--<i class="fa fa-twitter jssocials-share-logo"></i>--}}
+                                                                {{--<span class="jssocials-share-label">Tweet</span>--}}
+                                                            {{--</a>--}}
+                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
+                                                                {{--<span class="jssocials-share-count"></span>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="jssocials-share jssocials-share-facebook">--}}
+                                                            {{--<a target="_blank" href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjs-socials.com%2Fdemos%2F" class="jssocials-share-link">--}}
+                                                                {{--<i class="fa fa-facebook jssocials-share-logo"></i>--}}
+                                                                {{--<span class="jssocials-share-label">Like</span>--}}
+                                                            {{--</a>--}}
+                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
+                                                                {{--<span class="jssocials-share-count"></span>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                        {{--<div class="jssocials-share jssocials-share-googleplus">--}}
+                                                            {{--<a target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2Fjs-socials.com%2Fdemos%2F" class="jssocials-share-link">--}}
+                                                                {{--<i class="fa fa-google jssocials-share-logo"></i>--}}
+                                                                {{--<span class="jssocials-share-label">+1</span>--}}
+                                                            {{--</a>--}}
+                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
+                                                                {{--<span class="jssocials-share-count"></span>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                       {{--</div></div>--}}
+
                                                 <div class="share-box__list-link">
-                                                    <div class="list-link"><a class="list-link__item" href="https://www.facebook.com/sharer/sharer.php?u=">
+                                                    <div class="list-link" id="share">
+
+                                                        <a class="list-link__item jssocials-share-link" href="https://facebook.com/sharer/sharer.php?u=">
                                                             <svg class="icon icon-fb ">
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
-                                                            </svg></a><a class="list-link__item" href="https://twitter.com/home?status=">
+                                                            </svg>
+                                                        </a>
+                                                        <a class="list-link__item" href="https://twitter.com/intent/tweet">
                                                             <svg class="icon icon-twitter ">
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#twitter"></use>
-                                                            </svg></a><a class="list-link__item" href="#">
+                                                            </svg>
+                                                        </a>
+                                                        <a class="list-link__item" href="#">
                                                             <svg class="icon icon-wechat ">
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
-                                                            </svg></a></div>
+                                                            </svg>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,5 +164,5 @@
                 {{--</div>--}}
             </div>
         </div>
-    </div>
+
 @endsection

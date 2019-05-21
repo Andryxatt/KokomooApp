@@ -34,7 +34,7 @@
                                             <p class="post-box__paragraph-ch">{{$new->firstCont($new->news_id)['text_china'] }}</p>
                                         </div>
                                     </div>
-                                    <div class="post-box__link-read"><a class="link-read text-14" href="{{route('blog_pages.news',$new->news_id)}}">Read More</a></div>
+                                    <div class="post-box__link-read"><a class="link-read text-14" href="{{route('blog_pages.news',$new->slug)}}">Read More</a></div>
                                 </div>
                             </div>
                             @endforeach

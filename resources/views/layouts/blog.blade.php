@@ -31,6 +31,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSS-->
     <link rel="stylesheet" type="text/css" href="/static/css/libs.min.css">
+    <link rel="stylesheet" type="text/css" href="/jssocials/jssocials.css">
+    <link rel="stylesheet" type="text/css" href="/jssocials/jssocials-theme-flat.css">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"><!--[if lt IE 9]>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
 </head>
@@ -181,11 +183,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="footer__subscribe-env">
                             <div class="subscribe-env">
                                 <form action="{{ url('/blog/mailChim') }}" method="post">
-
-                                    {{--<div class="form-group">--}}
-                                        {{--<label for="exampleInputEmail">Email</label>--}}
-                                        {{--<input type="email" name="user_email" id="exampleInputEmail" class="form-control">--}}
-                                    {{--</div>--}}
                             {{ csrf_field() }}
                                     <button class="subscribe-env " type="submit" data-izimodal-open="#modal-subscribe"><span class="subscribe-env__text">Subscribe</span><span class="subscribe-env__border"></span><span class="subscribe-env__text">订阅</span></button>
                                 </form>
@@ -195,20 +192,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="col-12 col-md-12">
                         <div class="footer__social-list">
+                            <div id="">
                             <ul class="social-list">
-                                <li class="social-list__item"><a class="social-list__link" href="https://www.facebook.com/" target="_blank">
-                                        <svg class="icon icon-fb ">
-                                            <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
-                                        </svg></a></li>
-                                <li class="social-list__item"><a class="social-list__link" href="https://www.instagram.com/chi_media/" target="_blank">
-                                        <svg class="icon icon-instagram ">
-                                            <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram"></use>
-                                        </svg></a></li>
-                                <li class="social-list__item"><a class="social-list__link" href="#" data-izimodal-open="#modal-qr">
-                                        <svg class="icon icon-wechat ">
-                                            <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
-                                        </svg></a></li>
-                            </ul>
+                                    <li class="social-list__item">
+                                        <a  href="https://www.facebook.com" target="_blank" class="social-list__link">
+                                            <svg class="icon icon-fb ">
+                                                <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social-list__item">
+                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
+                                            <svg class="icon icon-instagram ">
+                                                <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="social-list__item">
+                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
+                                            <svg class="icon icon-wechat ">
+                                                <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                </ul></div>
                         </div>
                     </div>
                 </div>
@@ -217,6 +224,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
 </div>
 <script src="/static/js/libs.min.js"></script>
+<script src="/jssocials/jssocials.min.js"></script>
+<script src="/jssocials/soc.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/search.js"></script>
 </body>
