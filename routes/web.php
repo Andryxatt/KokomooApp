@@ -26,6 +26,8 @@ Route::get('/blog/news/{id}',[
     'uses' => 'BlogController@newsInfo',
     'as'=> 'blog_pages.news'
 ]);
+Route::post('/blog/mailChim','BlogController@mailChim');
+
 Route::get('/blog/news_list',[
     'uses' => 'BlogController@news_list',
     'as'=> 'blog_pages.news_list'

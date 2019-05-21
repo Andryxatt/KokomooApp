@@ -9,7 +9,7 @@ use App\MainTitleLeft;
 use App\NewsArtist;
 use App\NewsContent;
 use Illuminate\Http\Request;
-
+use Spatie\Newsletter\NewsletterFacade as Newsletter;
 class BlogController extends Controller
 {
      public function index()
@@ -44,5 +44,12 @@ class BlogController extends Controller
     public function artists_list()
     {
         return view('blog_pages.artists_list');
+    }
+    public function mailChim(Request $request)
+    {
+
+        if ( ! Newsletter::isSubscribed($request->email) ) {
+            Newsletter::subscribe($request->email);
+        }
     }
 }

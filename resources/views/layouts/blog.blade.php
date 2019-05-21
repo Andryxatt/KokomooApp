@@ -180,7 +180,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-12 col-md-12 col-lg-5">
                         <div class="footer__subscribe-env">
                             <div class="subscribe-env">
-                                <button class="subscribe-env" type="button" data-izimodal-open="#modal-subscribe"><span class="subscribe-env__text">Subscribe</span><span class="subscribe-env__border"></span><span class="subscribe-env__text">订阅</span></button>
+                                <form action="{{ url('/blog/mailChim') }}" method="post">
+
+                                    {{--<div class="form-group">--}}
+                                        {{--<label for="exampleInputEmail">Email</label>--}}
+                                        {{--<input type="email" name="user_email" id="exampleInputEmail" class="form-control">--}}
+                                    {{--</div>--}}
+                            {{ csrf_field() }}
+                                    <button class="subscribe-env " type="submit" data-izimodal-open="#modal-subscribe"><span class="subscribe-env__text">Subscribe</span><span class="subscribe-env__border"></span><span class="subscribe-env__text">订阅</span></button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
