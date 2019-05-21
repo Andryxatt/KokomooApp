@@ -37,6 +37,8 @@ class AgencyController extends Controller
             'title_china' =>$request['title_china'],
             'text_english' =>$request['text_english'],
             'text_china' =>$request['text_china'],
+            'help_text_c'=>$request['help_text_c'],
+            'help_text_e'=>$request['help_text_e']
         ]);
     }
 

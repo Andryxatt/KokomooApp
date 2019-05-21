@@ -19,6 +19,8 @@ class CreateAgenciesTable extends Migration
             $table->string('title_china');
             $table->longText('text_english');
             $table->longText('text_china');
+            $table->longText('help_text_e')->nullable();
+            $table->longText('help_text_c')->nullable();
             $table->timestamps();
         });
     }

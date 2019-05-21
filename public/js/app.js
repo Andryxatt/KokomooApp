@@ -2582,6 +2582,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2592,7 +2610,9 @@ __webpack_require__.r(__webpack_exports__);
         title_english: '',
         title_china: '',
         text_english: '',
-        text_china: ''
+        text_china: '',
+        help_text_c: '',
+        help_text_e: ''
       })
     };
   },
@@ -63135,6 +63155,10 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(cont.text_china))]),
                     _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(cont.help_text_e))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(cont.help_text_c))]),
+                    _vm._v(" "),
                     _c("td", [
                       _c(
                         "a",
@@ -63420,6 +63444,94 @@ var render = function() {
                         })
                       ],
                       1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.help_text_e,
+                              expression: "form.help_text_e"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("help_text_e")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "help_text_e",
+                            placeholder: "help_text_e"
+                          },
+                          domProps: { value: _vm.form.help_text_e },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "help_text_e",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "help_text_e" }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("textarea", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.help_text_c,
+                              expression: "form.help_text_c"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: {
+                            "is-invalid": _vm.form.errors.has("help_text_c")
+                          },
+                          attrs: {
+                            type: "text",
+                            name: "help_text_c",
+                            placeholder: "help_text_c"
+                          },
+                          domProps: { value: _vm.form.help_text_c },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.form,
+                                "help_text_c",
+                                $event.target.value
+                              )
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "help_text_c" }
+                        })
+                      ],
+                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -63491,6 +63603,10 @@ var staticRenderFns = [
       _c("th", [_vm._v("text_english")]),
       _vm._v(" "),
       _c("th", [_vm._v("text_china")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("help_text_english")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("help_text_china")]),
       _vm._v(" "),
       _c("th", [_vm._v("Modify")])
     ])

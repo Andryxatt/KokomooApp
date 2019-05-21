@@ -40,7 +40,7 @@
                                 <div class="post-env__top-wrapper">
                                     <div class="top-wrapper">
                                         <div class="top-wrapper__author-post hide-tablet">
-                                            <p class="author-post">{{$newse[0]->artist->full_name}} | Posted {{$newse[0]->date_news}}</p>
+                                            <p class="author-post">By {{$newse[0]->artist->full_name}} | Posted {{$newse[0]->date_news}}</p>
                                         </div>
                                         <div class="top-wrapper__share-box hide-tablet">
                                             <div class="share-box">

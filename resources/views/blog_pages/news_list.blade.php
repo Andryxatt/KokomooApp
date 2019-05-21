@@ -21,11 +21,11 @@
                                         <div class="post-box__column">
                                             <p class="post-box__title text-20">{{$new->category_english}}</p>
                                             <p class="post-box__sub-info">{{$new->category_china}}</p>
-                                            <p class="post-box__author">{{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
+                                            <p class="post-box__author">By {{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
                                         </div>
                                         <div class="post-box__column"><a class="post-box__picture" href="#"><img class="picture" src="/img/newsContent/{{$new->firstCont($new->news_id)['photo']}}" alt="post"></a></div>
                                     </div>
-                                    <p class="post-box__author-tablet">{{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
+                                    <p class="post-box__author-tablet">By {{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
                                     <div class="post-box__env-bottom">
                                         <div class="post-box__column-bottom">
                                             <p class="post-box__paragraph-en">{{$new->firstCont($new->news_id)['text_english'] }}</p>

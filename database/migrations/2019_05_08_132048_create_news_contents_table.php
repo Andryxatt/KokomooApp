@@ -19,8 +19,8 @@ class CreateNewsContentsTable extends Migration
             $table->foreign('news_id')->references('news_id')->on('news_artists');
             $table->string('photo')->nullable();
             $table->string('photo_title')->nullable();
-            $table->string('text_china')->nullable();
-            $table->string('text_english')->nullable();
+            $table->longText('text_china')->nullable();
+            $table->longText('text_english')->nullable();
             $table->timestamps();
         });
     }

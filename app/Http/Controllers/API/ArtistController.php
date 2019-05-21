@@ -55,7 +55,7 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $artist = Artist::findOrFail($id);
+        $artist = Artist::where('artist_id',$id);
         $this->validate($request,[
             'full_name'=> 'required|string|max:100',
             'specialization'=> 'required|string',

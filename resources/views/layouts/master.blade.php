@@ -72,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </p>
                         </router-link>
                     </li>
-
+                    @can('isAdmin')
                     <li class="nav-item has-treeview">
                         <a href="#" class="nav-link">
                             <i class="nav-item fas fa-cog text-orange"></i>
@@ -84,7 +84,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <router-link to="/users" class="nav-link">
-                                    <i class="fas fa-users nav-icon text-yellow"></i>
+
+                                    <i class="fab fa-black-tie text-yellow"></i>
                                     <p>Users</p>
                                 </router-link>
                             </li>
@@ -102,13 +103,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                             <li class="nav-item">
                                 <router-link to="/agency" class="nav-link">
-                                    <i class="fab fa-elementor text-orange"></i>
+                                    <i class="fas fa-cubes text-pink"></i>
                                     <p>Agency content</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
                                 <router-link to="/main_title_left" class="nav-link">
-                                    <i class="fab fa-elementor text-orange"></i>
+                                    <i class="fas fa-boxes text-teal"></i>
                                     <p>Main Titles Left</p>
                                 </router-link>
                             </li>
@@ -120,6 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
                         </ul>
                     </li>
+                    @endcan
                     <li class="nav-item">
                         <router-link to="/profile" class="nav-link">
                             <i class="nav-icon fa fa-user text-green"></i>

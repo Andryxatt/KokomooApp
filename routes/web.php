@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 });
 

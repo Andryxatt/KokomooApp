@@ -22,6 +22,8 @@
                             <th>title_china</th>
                             <th>text_english</th>
                             <th>text_china</th>
+                            <th>help_text_english</th>
+                            <th>help_text_china</th>
                             <th>Modify</th>
                         </tr>
                         <tr v-for="cont in agency" :key="cont.agency_id">
@@ -30,6 +32,8 @@
                             <td>{{cont.title_china}}</td>
                             <td>{{cont.text_english}}</td>
                             <td>{{cont.text_china}}</td>
+                            <td>{{cont.help_text_e}}</td>
+                            <td>{{cont.help_text_c}}</td>
                             <td>
                                 <a href="#" @click="editModal(cont)">
                                     <i class="fa fa-edit"></i>
@@ -87,6 +91,20 @@
                                 </textarea>
                                 <has-error :form="form" field="text_china"></has-error>
                             </div>
+                            <div class="form-group">
+                                <textarea v-model="form.help_text_e" type="text" name="help_text_e"
+                                          placeholder="help_text_e"
+                                          class="form-control" :class="{'is-invalid': form.errors.has('help_text_e')}">
+                                </textarea>
+                                <has-error :form="form" field="help_text_e"></has-error>
+                            </div>
+                            <div class="form-group">
+                                <textarea v-model="form.help_text_c" type="text" name="help_text_c"
+                                          placeholder="help_text_c"
+                                          class="form-control" :class="{'is-invalid': form.errors.has('help_text_c')}">
+                                </textarea>
+                                <has-error :form="form" field="help_text_c"></has-error>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -112,7 +130,9 @@
                     title_english:'',
                     title_china: '',
                     text_english: '',
-                    text_china:''
+                    text_china:'',
+                    help_text_c: '',
+                    help_text_e:''
                 })
             }
         },

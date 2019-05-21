@@ -37,8 +37,6 @@ class MainContentController extends Controller
 
         $name = time().'.' . explode('/', explode(':', substr($request->photo, 0, strpos($request->photo, ';')))[1])[1];
         Image::make($request->photo)->save(public_path('img/content/').$name);
-        $request->merge(['photo'=> $name]);
-
         MainContent::create([
             'title_english'=>  $request->title_english,
             'title_china'=>  $request->title_china,
