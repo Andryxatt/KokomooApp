@@ -11,7 +11,7 @@
                                         @foreach ($leftCont as $left)
                                         <div class="box-env">
                                             <div class="box-env__text">{{$left->china_text}}</div>
-                                            <div class="box-env__text">{{$left->english_text}}l</div>
+                                            <div class="box-env__text">{{$left->english_text}}</div>
                                         </div>
                                        @endforeach
                                     </div>

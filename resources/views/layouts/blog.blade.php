@@ -159,6 +159,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <p class="modal-callback__text-ch text-14">感謝您的訂閱</p>
             </div>
         </div>
+        <div class="modal-error">
+            <div class="modal-error">
+                <p class="modal-error__text-en text-14">This email is already signed</p>
+            </div>
+        </div>
         <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -182,10 +187,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-12 col-md-12 col-lg-5">
                         <div class="footer__subscribe-env">
                             <div class="subscribe-env">
-                                <form action="{{ url('/blog/mailChim') }}" method="post">
-                            {{ csrf_field() }}
-                                    <button class="subscribe-env " type="submit" data-izimodal-open="#modal-subscribe"><span class="subscribe-env__text">Subscribe</span><span class="subscribe-env__border"></span><span class="subscribe-env__text">订阅</span></button>
-                                </form>
+                                {{--<form action="{{ url('/blog/mailChim') }}" method="post">--}}
+                            {{--{{ csrf_field() }}--}}
+                                    <button class="subscribe-env " type="button" data-izimodal-open="#modal-subscribe"><span class="subscribe-env__text">Subscribe</span><span class="subscribe-env__border"></span><span class="subscribe-env__text">订阅</span></button>
+                                {{--</form>--}}
 
                             </div>
                         </div>
@@ -195,21 +200,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div id="">
                             <ul class="social-list">
                                     <li class="social-list__item">
-                                        <a  href="https://www.facebook.com" target="_blank" class="social-list__link">
+                                        <a  href="https://www.facebook.com/chi_media" target="_blank" class="social-list__link">
                                             <svg class="icon icon-fb ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
                                             </svg>
                                         </a>
                                     </li>
                                     <li class="social-list__item">
-                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
+                                        <a  href="https://instagram.com/chi_media" target="_blank" class="social-list__link">
                                             <svg class="icon icon-instagram ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram"></use>
                                             </svg>
                                         </a>
                                     </li>
                                     <li class="social-list__item">
-                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
+                                        <a  href="https://we@chi-china.net" target="_blank" class="social-list__link">
                                             <svg class="icon icon-wechat ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
                                             </svg>

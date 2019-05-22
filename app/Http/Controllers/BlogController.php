@@ -8,6 +8,7 @@ use App\MainContent;
 use App\MainTitleLeft;
 use App\NewsArtist;
 use App\NewsContent;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 class BlogController extends Controller
@@ -51,6 +52,9 @@ class BlogController extends Controller
 
         if ( ! Newsletter::isSubscribed($request->email) ) {
             Newsletter::subscribe($request->email);
+           echo 1;
+        }else {
+            echo 0;
         }
     }
 }

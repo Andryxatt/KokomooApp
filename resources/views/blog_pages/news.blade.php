@@ -59,37 +59,6 @@
                                             <div class="share-box">
                                                 <p class="share-box__text">Share</p>
 
-                                                {{--<div id="share" class="jssocials">--}}
-                                                    {{--<div class="jssocials-shares">--}}
-                                                        {{--<div class="jssocials-share jssocials-share-twitter">--}}
-                                                            {{--<a target="_blank" href="https://twitter.com/share?url=http%3A%2F%2Fjs-socials.com%2Fdemos%2F&amp;text=Simple%20Social%20Network%20Sharing%20Plugin" class="jssocials-share-link">--}}
-                                                                {{--<i class="fa fa-twitter jssocials-share-logo"></i>--}}
-                                                                {{--<span class="jssocials-share-label">Tweet</span>--}}
-                                                            {{--</a>--}}
-                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
-                                                                {{--<span class="jssocials-share-count"></span>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="jssocials-share jssocials-share-facebook">--}}
-                                                            {{--<a target="_blank" href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fjs-socials.com%2Fdemos%2F" class="jssocials-share-link">--}}
-                                                                {{--<i class="fa fa-facebook jssocials-share-logo"></i>--}}
-                                                                {{--<span class="jssocials-share-label">Like</span>--}}
-                                                            {{--</a>--}}
-                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
-                                                                {{--<span class="jssocials-share-count"></span>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                        {{--<div class="jssocials-share jssocials-share-googleplus">--}}
-                                                            {{--<a target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2Fjs-socials.com%2Fdemos%2F" class="jssocials-share-link">--}}
-                                                                {{--<i class="fa fa-google jssocials-share-logo"></i>--}}
-                                                                {{--<span class="jssocials-share-label">+1</span>--}}
-                                                            {{--</a>--}}
-                                                            {{--<div class="jssocials-share-count-box jssocials-share-no-count">--}}
-                                                                {{--<span class="jssocials-share-count"></span>--}}
-                                                            {{--</div>--}}
-                                                        {{--</div>--}}
-                                                       {{--</div></div>--}}
-
                                                 <div class="share-box__list-link">
                                                     <div class="list-link" id="share">
 
@@ -149,19 +118,6 @@
                 </div>
                 @endforeach
 
-                {{--<div class="row">--}}
-                    {{--<div class="col-12 col-md-12">--}}
-                        {{--<div class="news-list__post-list">--}}
-                            {{--<div class="post-list"><a class="post-list__picture" href="#"><img class="picture" src="/static/img/content/item-large.jpg" alt="post"></a></div>--}}
-                            {{--<div class="post-list__right-info">--}}
-                                {{--<div class="right-info">--}}
-                                    {{--<p class="right-info__text-en text-14">Diego Rivera Murals in</p>--}}
-                                    {{--<p class="right-info__text-en text-14">Mexico 1922-1929</p>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
             </div>
         </div>
 

@@ -14,37 +14,37 @@
 use Chencha\Share\Share;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/home', function () {
+Route::get('/admin', function () {
     return view('home');
 });
 
 Auth::routes();
-Route::get('/blog',[
+Route::get('/',[
     'uses' => 'BlogController@index',
     'as'=> 'blog_pages.main'
 ]);
 
 
-Route::get('/blog/news/{slug}',[
+Route::get('/news/{slug}',[
     'uses' => 'BlogController@newsInfo',
     'as'=> 'blog_pages.news'
 ]);
-Route::post('/blog/mailChim','BlogController@mailChim');
+Route::post('/mailChim','BlogController@mailChim');
 
-Route::get('/blog/news_list',[
+Route::get('/news_list',[
     'uses' => 'BlogController@news_list',
     'as'=> 'blog_pages.news_list'
 ]);
-Route::get('/blog/agency_list',[
+Route::get('/agency_list',[
     'uses' => 'BlogController@agency_list',
     'as'=> 'blog_pages.agency_list'
 ]);
-Route::get('/blog/artists_list',[
+Route::get('/artists_list',[
     'uses' => 'BlogController@artists_list',
     'as'=> 'blog_pages.artists_list'
 ]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@index')->name('admin');
 
 Route::get('{path}', 'HomeController@index')->where('path','([A-z\d-\/_.]+)?');
 

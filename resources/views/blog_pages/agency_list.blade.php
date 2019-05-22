@@ -99,7 +99,7 @@
                                             <p class="column-list__contact-item text-14">For business or general enquiries<br>please contact:</p>
                                             <p class="column-list__contact-item text-14">壁画讲述了耶稣的生平：</p>
                                         </div>
-                                        <div class="column-list align-items-center"><a class="column-list__link-item text-14" href="mailto:we@chi-china.net">mail@chi.com</a><a class="column-list__link-item text-14" href="mailto:we@chi-china.net">mail@chi.com</a></div>
+                                        <div class="column-list align-items-center"><a class="column-list__link-item text-14" href="mailto:we@chi-china.net">we@chi-china.net</a><a class="column-list__link-item text-14" href="mailto:we@chi-china.net">we@chi-china.net</a></div>
                                     </div>
                                 </div>
                             </div>
