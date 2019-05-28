@@ -53,7 +53,9 @@
                                     </div>
                                 </div>
                             @endforeach
+
                             </div>
+                            {{ $artists->links("pagination::simple-default") }}
                         </div>
                         <div class="col-12 col-md-12 col-lg-4">
                             <div class="row">
@@ -74,6 +76,7 @@
                                             </li>
                                          @endforeach
                                         </ul>
+
                                     </div>
                                 </div>
                             </div>

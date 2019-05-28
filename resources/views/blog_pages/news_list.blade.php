@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             @endforeach
-
+                                {{ $newss->links( "pagination::simple-default") }}
                         </div>
                     </div>
                 </div>

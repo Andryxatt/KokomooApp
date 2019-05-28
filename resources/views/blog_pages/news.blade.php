@@ -18,7 +18,7 @@
                                         </a>
                                     </li>
                                     <li class="social-list__item">
-                                        <a  href="https://www.instagram.com/chi_media/" target="_blank" class="social-list__link">
+                                        <a  href="" target="_blank" class="social-list__link">
                                             <svg class="icon icon-instagram ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#instagram"></use>
                                             </svg>
@@ -67,8 +67,9 @@
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#fb"></use>
                                                             </svg>
                                                         </a>
-                                                        <a class="list-link__item" href="https://twitter.com/intent/tweet">
-                                                            <svg class="icon icon-twitter ">
+
+                                                        <a class="list-link__item" href="https://www.linkedin.com/shareArticle?mini=true&url=">
+                                                            <svg class="icon icon-linked">
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#twitter"></use>
                                                             </svg>
                                                         </a>

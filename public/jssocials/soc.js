@@ -1,3 +1,3 @@
 $("#share").jsSocials({
-    shares: ["facebook", "twitter", "wechat"]
+    shares: ["facebook", "linkedin", "wechat"]
 });

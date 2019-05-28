@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/admin', function () {
     return view('home');
 });
-
+Route::get('/searchnews',[ 'uses' => 'SearchController@search',
+    'as'=> 'blog_pages.news_search']
+);
 Auth::routes();
 Route::get('/',[
     'uses' => 'BlogController@index',
     'as'=> 'blog_pages.main'
 ]);
-
-
 Route::get('/news/{slug}',[
     'uses' => 'BlogController@newsInfo',
     'as'=> 'blog_pages.news'

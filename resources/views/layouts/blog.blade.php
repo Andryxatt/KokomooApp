@@ -25,6 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="icon" type="image/png" sizes="96x96" href="./static/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon/favicon-16x16.png">
     <link rel="manifest" href="./static/favicon/manifest.json">
+
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./static/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
@@ -80,10 +81,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-lg-3">
-                            <div class="form-group">
-                                <input type="text" name="search" id="search" class="form-control" placeholder="search news artists">
-                                    <button class="bars" type="button"> Search
-                                    </button>
+                            <div class="container">
+                                <form method="get" action="{{route('blog_pages.news_search')}}">
+                                <input class="form-control" name="query" id="textsearch" type="text">
+                                <button type="submit" id="search">Search</button>
+                                </form>
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-lg-6">
@@ -240,6 +242,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/jssocials/soc.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/search.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+<script type="text/javascript">
 
+    {{--$(document).ready(function(){--}}
+
+        {{--fetch_customer_data();--}}
+
+        {{--function fetch_customer_data(query = '')--}}
+        {{--{--}}
+            {{--$.ajax({--}}
+                {{--url:"{{ route('blog_pages.news_search') }}",--}}
+                {{--method:'GET',--}}
+                {{--data:{query:query},--}}
+                {{--success:function(data)--}}
+                {{--{--}}
+                    {{--$('tbody').html(data.table_data);--}}
+                    {{--$('#total_records').text(data.total_data);--}}
+                {{--}--}}
+            {{--})--}}
+        {{--}--}}
+
+        {{--$(document).on('click', '#search', function(){--}}
+            {{--var query = $('#textsearch').val();--}}
+            {{--fetch_customer_data(query);--}}
+        {{--});--}}
+    {{--});--}}
+
+
+</script>
 </body>
 </html>

@@ -3,10 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class NewsArtist extends Model
 {
-
+    use Searchable;
     protected $fillable = [
         'artist_id', 'category_english','category_china','date_news', 'slug', 'news_id'
     ];
@@ -23,4 +24,5 @@ class NewsArtist extends Model
 
         return NewsContent::where("news_id", $id)->first();
     }
+
 }

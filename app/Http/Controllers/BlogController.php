@@ -27,7 +27,7 @@ class BlogController extends Controller
     public function news_list()
     {
         $artists = Artist::all();
-        $newss = NewsArtist::with('artist')->get();
+        $newss = NewsArtist::with('artist')->paginate(5);
         $contents = NewsContent::with('newsArtist')->get();
         return view('blog_pages.news_list', compact('artists','newss','contents' ));
     }
@@ -46,8 +46,8 @@ class BlogController extends Controller
     }
     public function artists_list()
     {
-        $artists = Artist::all();
-        return view('blog_pages.artists_list',['artists'=>$artists]);
+        $artists = Artist::paginate(5);
+        return view('blog_pages.artists_list',compact('artists'));
     }
 
     public function artist_news($slug)
