@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Artist;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Intervention\Image\Facades\Image;
 class ArtistController extends Controller
 {
     /**
@@ -26,13 +26,17 @@ class ArtistController extends Controller
         $this->validate($request,[
             'full_name'=> 'required|string|max:100',
             'specialization'=> 'required|string',
-            'date_birthday'=> 'required|'
+            'date_birthday'=> 'required|',
+            'slug'=>'required'
         ]);
+        $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+        Image::make($request->image)->save(public_path('img/artist/').$name);
         return Artist::create([
             'full_name' =>$request['full_name'],
             'specialization' =>$request['specialization'],
             'date_birthday' =>$request['date_birthday'],
-
+            'image' =>$name,
+            'slug'=>$request['slug']
         ]);
     }
 
@@ -55,15 +59,37 @@ class ArtistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $artist = Artist::where('artist_id',$id);
-        $this->validate($request,[
-            'full_name'=> 'required|string|max:100',
-            'specialization'=> 'required|string',
-            'date_birthday'=> 'required|'
+        $this->validate($request, [
+            'full_name' => 'required|string|max:100',
+            'specialization' => 'required|string',
+            'slug'=>'required|string'
         ]);
-        $artist->update($request->all());
+        $artist = Artist::where('artist_id', $id)->get();
 
-        return ['message'=> 'Updated user info'];
+        $currentPhoto = $artist[0]->image;
+
+
+        if($request->image != $currentPhoto) {
+            $name = time() . '.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+            \Image::make($request->image)->save(public_path('img/artist/') . $name);
+            $request->merge(['image' => $name]);
+            $upd = [
+                'full_name' => $request['full_name'],
+                'specialization' => $request['specialization'],
+                'image' => $request['image'],
+                'slug'=>$request['slug']
+            ];
+
+
+        } else {
+            $upd = [
+                'full_name' => $request['full_name'],
+                'specialization' => $request['specialization'],
+                'image' => $currentPhoto,
+                'slug'=>$request['slug']
+            ];
+        }
+        Artist::where('artist_id', $id)->update($upd);
     }
 
     /**

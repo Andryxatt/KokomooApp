@@ -9,6 +9,7 @@ use App\MainTitleLeft;
 use App\NewsArtist;
 use App\NewsContent;
 use http\Env\Response;
+use DB;
 use Illuminate\Http\Request;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 class BlogController extends Controller
@@ -45,7 +46,17 @@ class BlogController extends Controller
     }
     public function artists_list()
     {
-        return view('blog_pages.artists_list');
+        $artists = Artist::all();
+        return view('blog_pages.artists_list',['artists'=>$artists]);
+    }
+
+    public function artist_news($slug)
+    {
+        $artist = Artist::where('slug',$slug)->get();
+
+        $newse = NewsArtist::where("artist_id", $artist[0]->artist_id)->get();
+
+        return view('blog_pages.artist_news',['newse'=>$newse, 'artist'=>$artist] );
     }
     public function mailChim(Request $request)
     {

@@ -18,6 +18,7 @@ class CreateArtistsTable extends Migration
             $table->string('full_name');
             $table->string('specialization');
             $table->date('date_birthday');
+
         });
     }
 

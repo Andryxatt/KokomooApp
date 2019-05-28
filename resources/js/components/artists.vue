@@ -21,13 +21,18 @@
                             <th>Full_name</th>
                             <th>Specialization</th>
                             <th>date_birthday</th>
+                            <th>Image</th>
+                            <th>Slug url</th>
                             <th>Modify</th>
                         </tr>
                         <tr v-for="artist in artists" :key="artist.artist_id">
                             <td>{{ artist.artist_id }}</td>
                             <td>{{artist.full_name}}</td>
                             <td>{{artist.specialization}}</td>
+
                             <td>{{artist.date_birthday}}</td>
+                            <td>{{artist.image}}</td>
+                            <td>{{artist.slug}}</td>
                             <td>
                                 <a href="#" @click="editModal(artist)">
                                     <i class="fa fa-edit"></i>
@@ -80,6 +85,18 @@
                                        class="form-control" :class="{'is-invalid': form.errors.has('date_birthday')}">
                                 <has-error :form="form" field="date_birthday"></has-error>
                             </div>
+                            <div class="form-group">
+                                <label for="image"  class="col-sm-2 control-label">Image</label>
+                                <div class="col-sm-10">
+                                    <input type="file"  @change="addPhoto"  name="image" id="image">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input v-model="form.slug" type="text" name="slug"
+                                       placeholder="slug"
+                                       class="form-control" :class="{'is-invalid': form.errors.has('slug')}">
+                                <has-error :form="form" field="specialization"></has-error>
+                            </div>
                         </div>
 
                         <div class="modal-footer">
@@ -106,10 +123,30 @@
                     full_name: '',
                     specialization: '',
                     date_birthday: '',
+                    image: '',
+                    slug:'',
                 })
             }
         },
         methods: {
+            addPhoto(e){
+                let file = e.target.files[0];
+                let reader = new FileReader();
+                let vm = this;
+                if(file['size'] < 222111775){
+                    reader.onloadend = (file)=>{
+                        // console.log('RESULT', reader.result)
+                        this.form.image = reader.result;
+                    };
+                    reader.readAsDataURL(file);
+                }else{
+                    swal.fire(
+                        'Oops...',
+                        'You are uploading to large file!',
+                        'error'
+                    )
+                }
+            },
             updateArtist(){
                 // console.log('Editing data');
                 this.$Progress.start();

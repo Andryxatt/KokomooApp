@@ -11,6 +11,7 @@
 |
 */
 
+use App\Artist;
 use Chencha\Share\Share;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,12 +30,17 @@ Route::get('/news/{slug}',[
     'uses' => 'BlogController@newsInfo',
     'as'=> 'blog_pages.news'
 ]);
+Route::get('/artist_news/{slug}',[
+    'uses' => 'BlogController@artist_news',
+    'as'=> 'blog_pages.artist_news'
+]);
 Route::post('/mailChim','BlogController@mailChim');
 
 Route::get('/news_list',[
     'uses' => 'BlogController@news_list',
     'as'=> 'blog_pages.news_list'
 ]);
+
 Route::get('/agency_list',[
     'uses' => 'BlogController@agency_list',
     'as'=> 'blog_pages.agency_list'

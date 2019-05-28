@@ -61,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <header class="header">
                 <div class="container">
                     <div class="row align-items-end">
-                        <div class="col-12 col-md-12 col-lg-6">
+                        <div class="col-12 col-md-12 col-lg-3">
                             <div class="header__envelope-mobile">
                                 <div class="header__logotype"><a class="logotype" href="{{ route('blog_pages.main') }}">
                                         <svg class="icon icon-logo ">
@@ -77,6 +77,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </svg>
                                     </button>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-3">
+                            <div class="form-group">
+                                <input type="text" name="search" id="search" class="form-control" placeholder="search news artists">
+                                    <button class="bars" type="button"> Search
+                                    </button>
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-lg-6">
@@ -178,9 +185,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-12 col-md-12 col-lg-7">
                         <div class="footer__bottom-info">
                             <div class="bottom-info">
-                                <p class="bottom-info__en">Stay Updated</p>
+                                <p class="bottom-info__en">Follow </p>
                                 <p class="bottom-info__rotate-border"></p>
-                                <p class="bottom-info__ch">持续更新</p>
+                                <p class="bottom-info__ch">关注</p>
                             </div>
                         </div>
                     </div>
@@ -233,5 +240,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="/jssocials/soc.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/search.js"></script>
+
 </body>
 </html>

@@ -2811,6 +2811,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2820,13 +2837,33 @@ __webpack_require__.r(__webpack_exports__);
         artist_id: '',
         full_name: '',
         specialization: '',
-        date_birthday: ''
+        date_birthday: '',
+        image: '',
+        slug: ''
       })
     };
   },
   methods: {
-    updateArtist: function updateArtist() {
+    addPhoto: function addPhoto(e) {
       var _this = this;
+
+      var file = e.target.files[0];
+      var reader = new FileReader();
+      var vm = this;
+
+      if (file['size'] < 222111775) {
+        reader.onloadend = function (file) {
+          // console.log('RESULT', reader.result)
+          _this.form.image = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+      } else {
+        swal.fire('Oops...', 'You are uploading to large file!', 'error');
+      }
+    },
+    updateArtist: function updateArtist() {
+      var _this2 = this;
 
       // console.log('Editing data');
       this.$Progress.start();
@@ -2835,11 +2872,11 @@ __webpack_require__.r(__webpack_exports__);
         $('#addNewArtist').modal('hide');
         swal.fire('Updated!', 'Information has been updated', 'success');
 
-        _this.$Progress.finish();
+        _this2.$Progress.finish();
 
         Fire.$emit('AfterCreated');
       })["catch"](function () {
-        _this.$Progress.fail();
+        _this2.$Progress.fail();
       });
     },
     newModal: function newModal() {
@@ -2854,7 +2891,7 @@ __webpack_require__.r(__webpack_exports__);
       this.form.fill(main_title);
     },
     deleteArtist: function deleteArtist(id) {
-      var _this2 = this;
+      var _this3 = this;
 
       swal.fire({
         title: 'Are you sure?',
@@ -2867,7 +2904,7 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (result) {
         //Send ajax request to the server
         if (result.value) {
-          _this2.form["delete"]('api/Artist/' + id).then(function () {
+          _this3.form["delete"]('api/Artist/' + id).then(function () {
             swal.fire('Deleted!', 'Your title has been deleted.', 'success');
             Fire.$emit('AfterCreated');
           })["catch"](function () {
@@ -2877,37 +2914,37 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     loadArtists: function loadArtists() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get("api/Artist").then(function (data) {
-        _this3.artists = data.data;
+        _this4.artists = data.data;
       });
     },
     createArtist: function createArtist() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.$Progress.start();
       this.form.post('api/Artist').then(function () {
         Fire.$emit('AfterCreated');
         $('#addNewArtist').modal('hide');
 
-        _this4.loadArtists();
+        _this5.loadArtists();
 
         toast.fire({
           type: 'success',
           title: 'Title Created in successfully'
         });
 
-        _this4.$Progress.finish();
+        _this5.$Progress.finish();
       })["catch"](function () {});
     }
   },
   created: function created() {
-    var _this5 = this;
+    var _this6 = this;
 
     this.loadArtists();
     Fire.$on('AfterCreated', function () {
-      _this5.loadArtists();
+      _this6.loadArtists();
     }); //   setInterval(()=>this.loadUsers(), 3000);
   }
 });
@@ -63696,6 +63733,10 @@ var render = function() {
                     _vm._v(" "),
                     _c("td", [_vm._v(_vm._s(artist.date_birthday))]),
                     _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(artist.image))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(artist.slug))]),
+                    _vm._v(" "),
                     _c("td", [
                       _c(
                         "a",
@@ -63936,6 +63977,62 @@ var render = function() {
                         })
                       ],
                       1
+                    ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "label",
+                        {
+                          staticClass: "col-sm-2 control-label",
+                          attrs: { for: "image" }
+                        },
+                        [_vm._v("Image")]
+                      ),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col-sm-10" }, [
+                        _c("input", {
+                          attrs: { type: "file", name: "image", id: "image" },
+                          on: { change: _vm.addPhoto }
+                        })
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "form-group" },
+                      [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.form.slug,
+                              expression: "form.slug"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          class: { "is-invalid": _vm.form.errors.has("slug") },
+                          attrs: {
+                            type: "text",
+                            name: "slug",
+                            placeholder: "slug"
+                          },
+                          domProps: { value: _vm.form.slug },
+                          on: {
+                            input: function($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.form, "slug", $event.target.value)
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("has-error", {
+                          attrs: { form: _vm.form, field: "specialization" }
+                        })
+                      ],
+                      1
                     )
                   ]),
                   _vm._v(" "),
@@ -64005,6 +64102,10 @@ var staticRenderFns = [
       _c("th", [_vm._v("Specialization")]),
       _vm._v(" "),
       _c("th", [_vm._v("date_birthday")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Image")]),
+      _vm._v(" "),
+      _c("th", [_vm._v("Slug url")]),
       _vm._v(" "),
       _c("th", [_vm._v("Modify")])
     ])

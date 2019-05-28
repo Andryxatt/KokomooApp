@@ -15,7 +15,7 @@
                     <div class="col-12 col-md-12">
                         <div class="news-list__post-box">
                             @foreach($newss as $new)
-                            <div class="post-box">
+                            <div class="post-box" id="posts">
                                 <div class="post-box__wrapper">
                                     <div class="post-box__env">
                                         <div class="post-box__column">

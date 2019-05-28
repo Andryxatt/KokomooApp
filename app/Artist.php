@@ -10,12 +10,15 @@ class Artist extends Model
 {
     use HasApiTokens, Notifiable;
     protected $fillable = [
-      'artist_id','full_name', 'specialization', 'date_birthday',
+      'artist_id','full_name', 'specialization', 'date_birthday','image','slug'
     ];
     public $timestamps = false;
 
     public function newsArtist ()
     {
         return $this->hasMany('App\NewsArtist', 'artist_id', 'artist_id');
+    }
+    public function artistsWithNews(){
+
     }
 }
