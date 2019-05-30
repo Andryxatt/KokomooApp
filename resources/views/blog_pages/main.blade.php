@@ -45,8 +45,10 @@
                                 <div class="card-box">
                                     <div class="card-box__rotate-title">
                                         <div class="rotate-title">
+                                            <a class="picture" href="{{ route('blog_pages.'. strtolower($main->title_english).'_list') }}">
                                             <p class="rotate-title__en">{{$main->title_english}}</p>
                                             <p class="rotate-title__ch">{{$main->title_china}}</p>
+                                            </a>
                                         </div>
                                     </div>
                                     <div class="card-box__picture"><a class="picture" href="{{ route('blog_pages.'. strtolower($main->title_english).'_list') }}"><img class="picture__item" src="img/content/{{$main->photo}}" alt="picture"></a></div>

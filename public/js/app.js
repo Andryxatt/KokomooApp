@@ -64571,10 +64571,7 @@ var render = function() {
               _c(
                 "button",
                 { staticClass: "btn btn-success", on: { click: _vm.newModal } },
-                [
-                  _vm._v("New Agency "),
-                  _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-                ]
+                [_vm._v("New Agency "), _c("i", { staticClass: "fas fa-plus" })]
               )
             ])
           ])
@@ -65106,8 +65103,8 @@ var render = function() {
                 "button",
                 { staticClass: "btn btn-success", on: { click: _vm.newModal } },
                 [
-                  _vm._v("New Artist "),
-                  _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                  _vm._v("New Artist\n                            "),
+                  _c("i", { staticClass: "fas fa-plus" })
                 ]
               )
             ])
@@ -65560,7 +65557,7 @@ var render = function() {
                 { staticClass: "btn btn-success", on: { click: _vm.newModal } },
                 [
                   _vm._v("New Content "),
-                  _c("i", { staticClass: "fas fa-user-plus fa-fw" })
+                  _c("i", { staticClass: "fas fa-plus" })
                 ]
               )
             ])
@@ -65925,10 +65922,7 @@ var render = function() {
               _c(
                 "button",
                 { staticClass: "btn btn-success", on: { click: _vm.newModal } },
-                [
-                  _vm._v("New Title "),
-                  _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-                ]
+                [_vm._v("New Title "), _c("i", { staticClass: "fas fa-plus" })]
               )
             ])
           ])
@@ -66266,10 +66260,7 @@ var render = function() {
               _c(
                 "button",
                 { staticClass: "btn btn-success", on: { click: _vm.newModal } },
-                [
-                  _vm._v("New news  "),
-                  _c("i", { staticClass: "fas fa-user-plus fa-fw" })
-                ]
+                [_vm._v("New news  "), _c("i", { staticClass: "fas fa-plus" })]
               )
             ])
           ])

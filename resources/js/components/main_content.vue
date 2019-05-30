@@ -8,7 +8,7 @@
 
                         <div class="card-tools">
                             <button class="btn btn-success"  @click="newModal">New Content <i
-                                    class="fas fa-user-plus fa-fw"></i></button>
+                                    class="fas fa-plus"></i></button>
                         </div>
                     </div>
                 </div>

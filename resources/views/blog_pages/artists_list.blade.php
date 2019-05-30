@@ -69,8 +69,10 @@
                                                 </div>
                                                 <div class="list-alphabet__artist">
                                                     <div class="artist">
-                                                        <p class="artist__name">{{$art->full_name}}</p>
-                                                        <p class="artist__name text-gray">{{$art->specialization}}</p>
+                                                        <a href="{{route('blog_pages.artist_news',$art->slug)}}">
+                                                            <p class="artist__name">{{$art->full_name}}</p>
+                                                            <p class="artist__name text-gray">{{$art->specialization}}</p>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </li>
