@@ -29,19 +29,20 @@ class NewsArtistController extends Controller
      */
     public function store(Request $request)
     {
-//
         $this->validate($request,[
            'category_english'=> 'required|string',
            'category_china'=> 'required|string',
             'slug'=>'required|string'
        ]);
-       NewsArtist::create([
+      $newsA =  NewsArtist::create([
             'artist_id' =>$request['artist_id'],
             'category_english' =>$request['category_english'],
             'category_china' =>$request['category_china'],
             'date_news'=>$request['date_news'],
            'slug'=>$request['slug']
         ]);
+
+
         $ArtNews = NewsArtist ::orderBy('news_id', 'desc')->first();
 
             foreach($request->get('rows') as $news) {
@@ -59,7 +60,7 @@ class NewsArtistController extends Controller
                 }
             }
 
-        return ['message'=> 'Created news content'];
+       return ['message'=> 'Created news content'];
     }
 
     /**

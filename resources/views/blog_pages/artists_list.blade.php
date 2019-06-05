@@ -30,6 +30,8 @@
                         <div class="col-12 col-md-12 col-lg-8">
                             <div class="news-list__post-box">
                             @foreach($artists as $artist)
+
+                                @if($artist->newsArtist()->count()>0)
                                 <div class="post-box">
                                     <div class="post-box__wrapper">
                                         <div class="post-box__env">
@@ -52,6 +54,7 @@
                                         <div class="post-box__link-read"><a class="link-read text-14" href="{{route('blog_pages.artist_news',$artist->slug)}}">All news</a></div>
                                     </div>
                                 </div>
+                                    @endif
                             @endforeach
 
                             </div>
@@ -63,6 +66,7 @@
                                     <div class="main-artist__list-alphabet">
                                         <ul class="list-alphabet">
                                             @foreach($artists as $art)
+                                                @if($artist->newsArtist()->count()>0)
                                             <li class="list-alphabet__item">
                                                 <div class="list-alphabet__top-line">
                                                     <div class="top-line"></div>
@@ -76,6 +80,7 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                                @endif
                                          @endforeach
                                         </ul>
 

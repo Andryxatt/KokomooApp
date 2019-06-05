@@ -245,31 +245,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <script type="text/javascript">
 
-    {{--$(document).ready(function(){--}}
-
-        {{--fetch_customer_data();--}}
-
-        {{--function fetch_customer_data(query = '')--}}
-        {{--{--}}
-            {{--$.ajax({--}}
-                {{--url:"{{ route('blog_pages.news_search') }}",--}}
-                {{--method:'GET',--}}
-                {{--data:{query:query},--}}
-                {{--success:function(data)--}}
-                {{--{--}}
-                    {{--$('tbody').html(data.table_data);--}}
-                    {{--$('#total_records').text(data.total_data);--}}
-                {{--}--}}
-            {{--})--}}
-        {{--}--}}
-
-        {{--$(document).on('click', '#search', function(){--}}
-            {{--var query = $('#textsearch').val();--}}
-            {{--fetch_customer_data(query);--}}
-        {{--});--}}
-    {{--});--}}
-
-
 </script>
 </body>
 </html>

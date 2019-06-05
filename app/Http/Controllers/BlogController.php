@@ -26,10 +26,12 @@ class BlogController extends Controller
     }
     public function news_list()
     {
-        $artists = Artist::all();
+        $artists = Artist::with('newsArtist');
         $newss = NewsArtist::with('artist')->paginate(5);
         $contents = NewsContent::with('newsArtist')->get();
-        return view('blog_pages.news_list', compact('artists','newss','contents' ));
+        $topNews = NewsArtist::orderBy('date_news')->take(3)->get();
+
+        return view('blog_pages.news_list', compact('artists','newss','contents','topNews' ));
     }
     public function newsInfo($slug)
     {
@@ -46,7 +48,8 @@ class BlogController extends Controller
     }
     public function artists_list()
     {
-        $artists = Artist::paginate(5);
+        $artists = Artist::has('newsArtist','>',0)->paginate(5);
+
         return view('blog_pages.artists_list',compact('artists'));
     }
 

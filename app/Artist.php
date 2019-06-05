@@ -18,7 +18,4 @@ class Artist extends Model
     {
         return $this->hasMany('App\NewsArtist', 'artist_id', 'artist_id');
     }
-    public function artistsWithNews(){
-
-    }
 }

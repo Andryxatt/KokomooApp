@@ -32,6 +32,7 @@
                                         </a>
                                     </li>
                                 </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -68,7 +69,7 @@
                                                             </svg>
                                                         </a>
 
-                                                        <a class="list-link__item" href="https://www.linkedin.com/shareArticle?mini=true&url=">
+                                                        <a class="list-link__item" href="">
                                                             <svg class="icon icon-linked">
                                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#twitter"></use>
                                                             </svg>
@@ -80,7 +81,9 @@
                                                         </a>
                                                     </div>
                                                 </div>
+
                                             </div>
+                                            <div id="share"></div>
                                         </div>
                                     </div>
                                 </div>

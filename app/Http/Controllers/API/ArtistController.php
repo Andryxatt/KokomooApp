@@ -98,9 +98,8 @@ class ArtistController extends Controller
      */
     public function destroy($id)
     {
-        $artist = Artist::findOrFail($id);
-        //delete user
-        $artist->delete();
+        $artist = Artist::where('artist_id', $id)->delete();
+
         return ['message' => 'Artist deleted'];
     }
 }
