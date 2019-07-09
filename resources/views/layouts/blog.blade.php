@@ -6,28 +6,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Main</title><!--[if IE]>
+    <title>CHI-China</title><!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="">
     <!-- Favicon-->
-    <link rel="apple-touch-icon" sizes="57x57" href="./static/favicon//apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./static/favicon//apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./static/favicon//apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./static/favicon//apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./static/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./static/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./static/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./static/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./static/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="./static/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./static/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./static/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./static/favicon/favicon-16x16.png">
-    <link rel="manifest" href="./static/favicon/manifest.json">
 
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./static/favicon/ms-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="mask-icon" href="/static/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- CSS-->
@@ -62,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <header class="header">
                 <div class="container">
                     <div class="row align-items-end">
-                        <div class="col-12 col-md-12 col-lg-3">
+                        <div class="col-12 col-md-12 col-lg-4">
                             <div class="header__envelope-mobile">
                                 <div class="header__logotype"><a class="logotype" href="{{ route('blog_pages.main') }}">
                                         <svg class="icon icon-logo ">
@@ -80,15 +69,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-12 col-lg-3">
-                            <div class="container">
-                                <form method="get" action="{{route('blog_pages.news_search')}}">
-                                <input class="form-control" name="query" id="textsearch" type="text">
-                                <button type="submit" id="search">Search</button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-12 col-lg-6">
+                        <div class="col-12 col-md-12 col-lg-8">
+
                             <div class="header__navigation-menu">
                                 <div class="navigation-menu">
                                     <a class="navigation-menu__link text-16" href="{{ route('blog_pages.news_list') }}">
@@ -101,11 +83,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <span class="navigation-menu__border"></span>
                                         <span class="navigation-menu__lang-ch">艺术家</span>
                                     </a>
-                                    <a class="navigation-menu__link text-16" href="{{ route('blog_pages.agency_list') }}">
+                                    <a class="navigation-menu__link text-16 margin-navigation-agency" href="{{ route('blog_pages.agency_list') }}">
                                         <span class="navigation-menu__lang-en">Agency</span>
                                         <span class="navigation-menu__border"></span>
                                         <span class="navigation-menu__lang-ch">机构</span>
                                     </a>
+                                   <div class="navigation-menu__link margin-navigation-search">
+                                      <form method="get" action="{{route('blog_pages.news_search')}}">
+                                        <input class="form-control" name="query" id="textsearch" type="text">
+                                        <button type="submit" id="search">
+                                          Search
+                                        </button>
+                                         <div class="navigation-search__info">
+                                          <span class="navigation-menu__border"></span>
+                                          <span class="search-text">搜索</span>
+                                        </div>
+                                      </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         @yield('content')
         <div class="modal-qr" id="modal-qr">
-            <div class="modal-qr__body"><img class="modal-qr__item" src="static/img/content/wechat-qr-code.jpg" alt="qr-code"></div>
+            <div class="modal-qr__body"><img class="modal-qr__item" src="/static/img/content/wechat-qr-code.jpg" alt="qr-code"></div>
         </div>
         <div class="modal-subscribe" id="modal-subscribe">
             <form class="modal-subscribe__body" name="subscribe[]">
@@ -223,7 +217,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </a>
                                     </li>
                                     <li class="social-list__item">
-                                        <a  href="https://we@chi-china.net" target="_blank" class="social-list__link">
+                                        <a  href="#" class="social-list__link" data-izimodal-open="#modal-qr">
                                             <svg class="icon icon-wechat ">
                                                 <use xlink:href="/static/img/svg/symbol/sprite.svg#wechat"></use>
                                             </svg>

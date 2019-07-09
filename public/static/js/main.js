@@ -121,21 +121,17 @@
     barsButton.on('click', navbarOpen);
     barsList.on('click', alphabetOpen);
     $('.modal-qr, .modal-subscribe').iziModal({
-        headerColor: '#191919',
         background: '#ffffff',
-        title: 'CHI - Art manifestation in a world commerce',
-        transitionIn: 'bounceInDown',
-        transitionOut: 'bounceOutDown',
+        transitionIn: 'fadeIn',
+        transitionOut: 'fadeOut',
         fullscreen: false,
         closeOnEscape: true,
         closeButton: true
     });
     var callbackModal = $('.modal-callback').iziModal({
-        headerColor: '#191919',
         background: '#ffffff',
-        title: 'CHI - Art manifestation in a world commerce',
-        transitionIn: 'bounceInDown',
-        transitionOut: 'bounceOutDown',
+        transitionIn: 'fadeIn',
+        transitionOut: 'fadeOut',
         fullscreen: false,
         closeOnEscape: true,
         closeButton: true

@@ -22,8 +22,7 @@ class SearchController extends Controller
             if($query != '')
             {
                 $newss = NewsArtist::where('category_english', 'like', '%'.$query.'%')
-                    ->orWhere('category_china', 'like', '%'.$query.'%')
-                    ->orderBy('artist_id', 'desc')->paginate(2);;
+                    ->orWhere('category_china', 'like', '%'.$query.'%')->paginate(2);;
             }
             else
             {

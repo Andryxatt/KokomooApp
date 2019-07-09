@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Agency;
 use App\Artist;
+use App\ArtistBio;
 use App\MainContent;
 use App\MainTitleLeft;
 use App\NewsArtist;
 use App\NewsContent;
-use http\Env\Response;
-use DB;
+
 use Illuminate\Http\Request;
 use Spatie\Newsletter\NewsletterFacade as Newsletter;
 class BlogController extends Controller
@@ -20,46 +20,47 @@ class BlogController extends Controller
            $leftCont = MainTitleLeft::all();
             return view('blog_pages.main',compact('maincont','leftCont'));
        }
-    public function news($id, $request)
-    {
-        return view('blog_pages.news');
-    }
+
     public function news_list()
     {
-        $artists = Artist::with('newsArtist');
-        $newss = NewsArtist::with('artist')->paginate(5);
+        $newss = NewsArtist::paginate(5);
         $contents = NewsContent::with('newsArtist')->get();
-        $topNews = NewsArtist::orderBy('date_news')->take(3)->get();
-
-        return view('blog_pages.news_list', compact('artists','newss','contents','topNews' ));
+        return view('blog_pages.news_list', compact('newss','contents' ));
     }
     public function newsInfo($slug)
     {
-        $newse = NewsArtist::where('slug',$slug)->get();
-
-        $content = NewsContent::where("news_id", $newse[0]->news_id)->get();
-
-        return view('blog_pages.news',compact('newse', 'content') );
+        $newse = NewsArtist::where('slug',$slug)->firstOrFail();
+        $topNews = NewsArtist::orderBy('date_news')->take(3)->get();
+        $content = NewsContent::where("news_id",'LIKE', $newse->id)->get();
+        return view('blog_pages.news',compact('newse', 'content','topNews') );
     }
     public function agency_list()
     {
        $agency =  Agency::all();
         return view('blog_pages.agency_list',['agencys'=>$agency]);
     }
-    public function artists_list()
+    public function artists_list(Request $request)
     {
-        $artists = Artist::has('newsArtist','>',0)->paginate(5);
+        if(isset($request->sort)){
+            $allArt = Artist::has('ArtistBios')->orderBy('full_name', 'ASC')->get();
+        }
+        else {
+            $allArt = Artist::has('ArtistBios')->orderBy('artist_id', 'DESC')->get();
+        }
+        $artists = Artist::has('ArtistBios','>',0)->paginate(5);
+        $artBio = ArtistBio::all();
 
-        return view('blog_pages.artists_list',compact('artists'));
+        return view('blog_pages.artists_list',compact('artists','artBio','allArt'));
     }
 
-    public function artist_news($slug)
+    public function artist_news($id)
     {
-        $artist = Artist::where('slug',$slug)->get();
+        $artist = Artist::where('artist_id',$id)->get();
 
-        $newse = NewsArtist::where("artist_id", $artist[0]->artist_id)->get();
+        $topNews = NewsArtist::orderBy('date_news')->take(3)->get();
+        $bios = ArtistBio::where('artist_id', 'LIKE', $id)->get();
 
-        return view('blog_pages.artist_news',['newse'=>$newse, 'artist'=>$artist] );
+        return view('blog_pages.artist_news',compact('topNews', 'artist', 'bios'));
     }
     public function mailChim(Request $request)
     {

@@ -25,17 +25,17 @@
                                         <div class="post-box__column">
                                             <p class="post-box__title text-20">{{$new->category_english}}</p>
                                             <p class="post-box__sub-info">{{$new->category_china}}</p>
-                                            <p class="post-box__author">By {{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
+                                            <p class="post-box__author">By {{$new->author_name}} | Posted {{$new->date_news}}</p>
                                         </div>
-                                        <div class="post-box__column"><a class="post-box__picture" href="#"><img class="picture" src="/img/newsContent/{{$new->firstCont($new->news_id)['photo']}}" alt="post"></a></div>
+                                        <div class="post-box__column"><a class="post-box__picture" href="#"><img class="picture" src="/img/newsContent/{{$new->firstCont($new->id)['photo']}}" alt="post"></a></div>
                                     </div>
-                                    <p class="post-box__author-tablet">By {{$new->artist->full_name}} | Posted {{$new->date_news}}</p>
+                                    <p class="post-box__author-tablet">By {{$new->author_name}} | Posted {{$new->date_news}}</p>
                                     <div class="post-box__env-bottom">
                                         <div class="post-box__column-bottom">
-                                            <p class="post-box__paragraph-en">{{$new->firstCont($new->news_id)['text_english'] }}</p>
+                                            <p class="post-box__paragraph-en">{{$new->firstCont($new->id)['text_english'] }}</p>
                                         </div>
                                         <div class="post-box__column-bottom">
-                                            <p class="post-box__paragraph-ch">{{$new->firstCont($new->news_id)['text_china'] }}</p>
+                                            <p class="post-box__paragraph-ch">{{$new->firstCont($new->id)['text_china'] }}</p>
                                         </div>
                                     </div>
                                     <div class="post-box__link-read"><a class="link-read text-14" href="{{route('blog_pages.news',$new->slug)}}">Read More</a></div>

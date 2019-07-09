@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Artist;
+
 use App\NewsArtist;
 use App\NewsContent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use mysql_xdevapi\Exception;
+
 
 class NewsArtistController extends Controller
 {
@@ -16,10 +16,9 @@ class NewsArtistController extends Controller
      */
     public function index()
     {
-        $artist = Artist::all();
-        $news = NewsArtist::with('artist')->get();
+        $news = NewsArtist::all();
         $content = NewsContent::with('newsArtist')->get();
-        return ['artists'=>$artist, 'news'=>$news, 'content'=>$content];
+        return ['news'=>$news, 'content'=>$content];
     }
 
     /**
@@ -29,29 +28,28 @@ class NewsArtistController extends Controller
      */
     public function store(Request $request)
     {
+//
         $this->validate($request,[
            'category_english'=> 'required|string',
-           'category_china'=> 'required|string',
             'slug'=>'required|string'
        ]);
       $newsA =  NewsArtist::create([
-            'artist_id' =>$request['artist_id'],
+            'author_name' =>$request['author_name'],
             'category_english' =>$request['category_english'],
             'category_china' =>$request['category_china'],
             'date_news'=>$request['date_news'],
            'slug'=>$request['slug']
         ]);
-
-
-        $ArtNews = NewsArtist ::orderBy('news_id', 'desc')->first();
-
+     
+        $ArtNews = NewsArtist::orderBy('id', 'desc')->first();
             foreach($request->get('rows') as $news) {
+
                 if($news['photo'] != null){
                     $name = time().'.' . explode('/', explode(':', substr($news['photo'], 0, strpos($news['photo'], ';')))[1])[1];
                     \Image::make($news['photo'])->save(public_path('img/newsContent/').$name);
                     $request->merge(['photo'=> $name]);
                     NewsContent::create ( [
-                        'news_id'=> $ArtNews->news_id,
+                        'news_id'=> $ArtNews->id,
                         'photo'=>$name,
                         'photo_title'=>$news['photo_title'],
                         'text_china'=>$news['text_china'],
@@ -60,7 +58,7 @@ class NewsArtistController extends Controller
                 }
             }
 
-       return ['message'=> 'Created news content'];
+        return ['message'=> 'Created news content'];
     }
 
     /**
@@ -78,13 +76,13 @@ class NewsArtistController extends Controller
     public function update(Request $request, $id)
     {
         $update = [
-            'artist_id' => $request['artist_id'],
+            'author_name' => $request['author_name'],
             'category_china' => $request['category_china'],
             'category_english' => $request['category_english'],
             'date_news' => $request['date_news'],
             'slug'=>$request['slug']
         ];
-        NewsArtist::where('news_id', $id)->update($update);
+        NewsArtist::where('id', $id)->update($update);
 
     if( $request['rows']!=null){
         $content = $request['rows'];
@@ -119,7 +117,6 @@ class NewsArtistController extends Controller
                 NewsContent::where('content_id', $content[$i]['content_id'])->update($upd);
             }
         }
-
     }
 
 
@@ -136,9 +133,9 @@ class NewsArtistController extends Controller
     public function destroy($id)
     {
         NewsContent::where('news_id', $id)->delete();
-        NewsArtist::where('news_id', $id)->delete();
+        NewsArtist::where('id', $id)->delete();
 
         //delete user
-        return ['message' => 'Artist deleted'];
+        return ['message' => 'News deleted'];
     }
 }

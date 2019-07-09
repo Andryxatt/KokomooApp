@@ -15,7 +15,7 @@ class NewsContent extends Model implements \Countable
 
     public function newsArtist()
     {
-        return $this->belongsTo('App\NewsArtist', 'news_id', 'news_id');
+        return $this->belongsTo('App\NewsArtist', 'news_id', 'id');
     }
 
     /**

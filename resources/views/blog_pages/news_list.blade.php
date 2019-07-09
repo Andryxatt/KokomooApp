@@ -15,21 +15,22 @@
                     <div class="col-12 col-md-12">
                         <div class="news-list__post-box">
                             @foreach($newss as $new)
-                                <div class="post-box" id="posts">
+                                <div class="post-box">
                                     <div class="post-box__wrapper">
                                         <div class="post-box__env">
                                             <div class="post-box__column">
-                                                <p class="post-box__title text-20">{{$new->category_english}}</p>
-                                                <p class="post-box__sub-info">{{$new->category_china}}</p>
-                                                <p class="post-box__author">By {{$new->artist->full_name}} |
+                                                <a class=""
+                                                   href="{{route('blog_pages.news',$new->slug)}}"><p class="post-box__title text-20">{{$new->category_english}}</p>
+                                                    <p class="post-box__sub-info">{{$new->category_china}}</p></a>
+                                                <p class="post-box__author">By {{$new->author_name}} |
                                                     Posted {{$new->date_news}}</p>
                                             </div>
-                                            <div class="post-box__column"><a class="post-box__picture" href="#"><img
+                                            <div class="post-box__column"><a class="post-box__picture" href="{{route('blog_pages.news',$new->slug)}}"><img
                                                             class="picture"
                                                             src="/img/newsContent/{{$new->firstCont($new->news_id)['photo']}}"
                                                             alt="post"></a></div>
                                         </div>
-                                        <p class="post-box__author-tablet">By {{$new->artist->full_name}} |
+                                        <p class="post-box__author-tablet">By {{$new->author_name}} |
                                             Posted {{$new->date_news}}</p>
                                         <div class="post-box__env-bottom">
                                             <div class="post-box__column-bottom">
@@ -48,29 +49,7 @@
                             {{ $newss->links( "pagination::simple-default") }}
                         </div>
                     </div>
-                    <div class="row">
-                        <h2 class="m-auto">last added news</h2>
-                        <div class="card-deck pb-3">
 
-                            @foreach($topNews as $top)
-
-                                <div class="card">
-                                    <a href="{{route('blog_pages.news',$new->slug)}}"><img class="botomimg card-img-top"
-                                                                                           src="/img/newsContent/{{$top->firstCont($top->news_id)['photo']}}"
-                                                                                           alt="post"></a>
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{$top->slug}}</h5>
-                                        <p class="card-text">{{$top->category_english}}</p>
-                                        <a href="{{route('blog_pages.news',$new->slug)}}">Read news </a>
-                                    </div>
-                                    <div class="card-footer">
-                                        <small class="text-muted">{{$top->date_news}}</small>
-                                    </div>
-                                </div>
-
-                            @endforeach
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

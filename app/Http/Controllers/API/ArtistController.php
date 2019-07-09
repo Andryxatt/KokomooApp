@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Artist;
+use App\ArtistBio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
@@ -13,7 +14,9 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        return Artist::all();
+        $artists = Artist::all();
+        $bio = ArtistBio::with('Artist')->get();
+        return ['artists'=>$artists, 'bio'=>$bio];
     }
 
     /**
@@ -26,18 +29,35 @@ class ArtistController extends Controller
         $this->validate($request,[
             'full_name'=> 'required|string|max:100',
             'specialization'=> 'required|string',
-            'date_birthday'=> 'required|',
             'slug'=>'required'
         ]);
         $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
         Image::make($request->image)->save(public_path('img/artist/').$name);
-        return Artist::create([
+        $artist = Artist::create([
             'full_name' =>$request['full_name'],
             'specialization' =>$request['specialization'],
-            'date_birthday' =>$request['date_birthday'],
             'image' =>$name,
             'slug'=>$request['slug']
         ]);
+        $artistLast = Artist::orderBy('artist_id', 'desc')->first();
+
+        foreach($request->get('rows') as $news) {
+
+            if($news['photo'] != null){
+
+                $name = time().'.' . explode('/', explode(':', substr($news['photo'], 0, strpos($news['photo'], ';')))[1])[1];
+                \Image::make($news['photo'])->save(public_path('img/ArtistBioPhoto/').$name);
+                $request->merge(['photo'=> $name]);
+                ArtistBio::create ( [
+                    'artist_id'=>$artistLast->artist_id,
+                    'photo'=>$name,
+                    'text_china'=>$news['text_china'],
+                    'text_english'=>$news['text_english']
+                ]);
+            }
+        }
+
+        return ['message'=> 'Created news content'];
     }
 
     /**
@@ -62,7 +82,7 @@ class ArtistController extends Controller
         $this->validate($request, [
             'full_name' => 'required|string|max:100',
             'specialization' => 'required|string',
-            'slug'=>'required|string'
+            'slug' => 'required|string'
         ]);
         $artist = Artist::where('artist_id', $id)->get();
 
@@ -77,7 +97,7 @@ class ArtistController extends Controller
                 'full_name' => $request['full_name'],
                 'specialization' => $request['specialization'],
                 'image' => $request['image'],
-                'slug'=>$request['slug']
+                'slug' => $request['slug']
             ];
 
 
@@ -86,10 +106,40 @@ class ArtistController extends Controller
                 'full_name' => $request['full_name'],
                 'specialization' => $request['specialization'],
                 'image' => $currentPhoto,
-                'slug'=>$request['slug']
+                'slug' => $request['slug']
             ];
         }
         Artist::where('artist_id', $id)->update($upd);
+        if($request['rows'] != null) {
+            $content = $request['rows'];
+
+            if(count($content) > 0) {
+                for($i = 0; $i < count($content); $i++) {
+                    $news = ArtistBio::where('artist_bio_id', $content[$i]['artist_bio_id'])->get();
+
+                    if($news[0]->photo != $content[$i]['photo']) {
+                        $name = time() . '.' . explode('/', explode(':', substr($content[$i]['photo'], 0, strpos($content[$i]['photo'], ';')))[1])[1];
+                        \Image::make($content[$i]['photo'])->save(public_path('img/ArtistBioPhoto/') . $name);
+                        $request->merge(['photo' => $name]);
+                        $upd = [
+                            'artist_id' => $content[$i]['artist_id'],
+                            'photo' => $name,
+                            'text_china' => $content[$i]['text_china'],
+                            'text_english' => $content[$i]['text_english']
+                        ];
+
+                    } else {
+                        $upd = [
+                            'artist_id' => $content[$i]['artist_id'],
+                            'photo' => $content[$i]['photo'],
+                            'text_china' => $content[$i]['text_china'],
+                            'text_english' => $content[$i]['text_english']
+                        ];
+                    }
+                    ArtistBio::where('artist_bio_id', $content[$i]['artist_bio_id'])->update($upd);
+                }
+            }
+        }
     }
 
     /**
